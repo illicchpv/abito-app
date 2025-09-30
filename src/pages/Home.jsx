@@ -1,24 +1,12 @@
+import {Card} from "../components/Card/Card";
+import {Header} from "../components/Header/Header";
+import {cardArray} from "../constants";
+
 export const Home = () => {
   return (
-    <div>
+    <>
 
-      <header className="header">
-        <div className="container">
-          <div className="header-box">
-            <a href="#!" className="header-logo">
-              <img src="/image/logo.svg" alt="logo" />
-              <span>Abito</span>
-            </a>
-            <div className="header-controls">
-              <button className="btn btn-outline">Вход и регистрация</button>
-              <button className="btn btn-primary">Подать объявление</button>
-            </div>
-            <div className="header-burger">
-              <img src="/image/burger.svg" alt="burger menu" />
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main>
         <section className="search">
@@ -44,28 +32,16 @@ export const Home = () => {
 
                 <div className="content-main__list">
 
-                  <a href="product.html" className="content-main__list-item">
-                    <div className="content-main__list-item--img">
-                      <img src="/image/card-img.jpg" alt="card-img" />
-                    </div>
-
-                    <h5 className="content-main__list-item--title">
-                      Пвх материал 2й сорт
-                    </h5>
-
-                    <strong className="content-main__list-item--price">
-                      170 ₽
-                    </strong>
-
-                    <div className="content-main__list-item--desc-box">
-                      <span className="content-main__list-item--desc">
-                        Казань, р-н Вахитовский
-                      </span>
-                      <span className="content-main__list-item--desc">
-                        10 июля 11:39
-                      </span>
-                    </div>
-                  </a>
+                  {
+                    cardArray.map(card =>
+                      <Card key={card.id}
+                        title={card.title}
+                        price={card.price}
+                        address={card.address}
+                        date={card.date}
+                        img={card.img}
+                      />)
+                  }
 
                 </div>
               </div>
@@ -123,6 +99,6 @@ export const Home = () => {
         </section>
       </main>
 
-    </div>
+    </>
   );
 };

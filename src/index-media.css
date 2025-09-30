@@ -9,10 +9,6 @@
     max-width: 730px;
   }
 
-  .content-main__list-item {
-    width: calc((100% - 30px) / 2);
-  }  
-
   .content-box {
     flex-direction: column;
   }
@@ -47,21 +43,7 @@
     max-width: 100%;
   }
 
-  .header-controls {
-    display: none;
-  }
-
-  .header-burger {
-    display: block;
-  }
-
   .search-btn .search-btn__text {
     display: none;
   }
-}
-
-@media (max-width: 480px) {
-  .content-main__list-item {
-    width: 100%;
-  } 
 }
