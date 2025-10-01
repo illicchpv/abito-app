@@ -1,106 +1,84 @@
 import {Card} from "../components/Card/Card";
-import {Header} from "../components/Header/Header";
 import {cardArray} from "../constants";
 
 export const Home = () => {
   return (
-    <>
+    <section className="content">
+      <div className="container">
+        <div className="content-box">
+          <div className="content-main">
+            <h2 className="content-main__title">
+              Рекомендации для вас
+            </h2>
 
-      <Header />
+            <div className="content-main__list">
 
-      <main>
-        <section className="search">
-          <div className="container">
-            <div className="search-box">
-              <input type="text" />
+              {
+                cardArray.map(card =>
+                  <Card
+                    key={card.id}
+                    id={card.id}
+                    title={card.title}
+                    price={card.price}
+                    address={card.address}
+                    date={card.date}
+                    img={card.img}
+                  />)
+              }
 
-              <button className="btn btn-primary search-btn">
-                <img className="search-btn__icon" src=" /image/search.svg" alt="search" />
-                <span className="search-btn__text">Найти</span>
-              </button>
             </div>
           </div>
-        </section>
 
-        <section className="content">
-          <div className="container">
-            <div className="content-box">
-              <div className="content-main">
-                <h2 className="content-main__title">
-                  Рекомендации для вас
-                </h2>
+          <div className="content-side">
+            <h3 className="content-said__title"> Сервисы и услуги </h3>
 
-                <div className="content-main__list">
-
-                  {
-                    cardArray.map(card =>
-                      <Card
-                        key={card.id}
-                        id={card.id}
-                        title={card.title}
-                        price={card.price}
-                        address={card.address}
-                        date={card.date}
-                        img={card.img}
-                      />)
-                  }
-
+            <div className="content-said__box">
+              <div className="content-said__list">
+                <div className="content-said__list-item">
+                  <img className="content-said__list-item--img" src="/image/side-info-1.svg" alt="" />
+                  <h5 className="content-said__list-item--title">
+                    Доставка
+                  </h5>
+                  <div className="content-said__list-item--text">
+                    Проверка при получении и возможность бесплатно вернуть товар
+                  </div>
+                </div>
+                <div className="content-said__list-item">
+                  <img className="content-said__list-item--img" src="/image/side-info-2.svg" alt="" />
+                  <h5 className="content-said__list-item--title">
+                    Автотека
+                  </h5>
+                  <div className="content-said__list-item--text">
+                    Отчёт с историей авто: пробег, владельцы, сведения о залоге, ДТП и ремонтах
+                  </div>
+                </div>
+                <div className="content-said__list-item">
+                  <img className="content-said__list-item--img" src="/image/side-info-3.svg" alt="" />
+                  <h5 className="content-said__list-item--title">
+                    Онлайн-бронирование жилья
+                  </h5>
+                  <div className="content-said__list-item--text">
+                    Посуточная аренда квартир и домов: большой выбор вариантов для поездок по России
+                  </div>
                 </div>
               </div>
 
-              <div className="content-side">
-                <h3 className="content-said__title"> Сервисы и услуги </h3>
-
-                <div className="content-said__box">
-                  <div className="content-said__list">
-                    <div className="content-said__list-item">
-                      <img className="content-said__list-item--img" src="/image/side-info-1.svg" alt="" />
-                      <h5 className="content-said__list-item--title">
-                        Доставка
-                      </h5>
-                      <div className="content-said__list-item--text">
-                        Проверка при получении и возможность бесплатно вернуть товар
-                      </div>
-                    </div>
-                    <div className="content-said__list-item">
-                      <img className="content-said__list-item--img" src="/image/side-info-2.svg" alt="" />
-                      <h5 className="content-said__list-item--title">
-                        Автотека
-                      </h5>
-                      <div className="content-said__list-item--text">
-                        Отчёт с историей авто: пробег, владельцы, сведения о залоге, ДТП и ремонтах
-                      </div>
-                    </div>
-                    <div className="content-said__list-item">
-                      <img className="content-said__list-item--img" src="/image/side-info-3.svg" alt="" />
-                      <h5 className="content-said__list-item--title">
-                        Онлайн-бронирование жилья
-                      </h5>
-                      <div className="content-said__list-item--text">
-                        Посуточная аренда квартир и домов: большой выбор вариантов для поездок по России
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="content-said__footer">
-                    <p className="content-said__footer--item">
-                      © ООО «Абито», 2011–2021
-                    </p>
-                    <a href="#!" className="content-said__footer--item">
-                      Политика конфиденциальности
-                    </a>
-                    <a href="#!" className="content-said__footer--item">
-                      Обработка данных
-                    </a>
-                  </div>
-                </div>
-
+              <div className="content-said__footer">
+                <p className="content-said__footer--item">
+                  © ООО «Абито», 2011–2021
+                </p>
+                <a href="#!" className="content-said__footer--item">
+                  Политика конфиденциальности
+                </a>
+                <a href="#!" className="content-said__footer--item">
+                  Обработка данных
+                </a>
               </div>
             </div>
-          </div>
-        </section>
-      </main>
 
-    </>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
