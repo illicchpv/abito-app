@@ -1,7 +1,30 @@
+import {useEffect, useState} from "react";
 import {Outlet} from "react-router-dom";
 import {Header} from "../components/Header/Header";
+import {cardArray} from "../constants";
 
 export const Layout = () => {
+  const [searchText, setSearchText] = useState('');
+  const [products, setProducts] = useState([]);
+
+  const handleSearch = e => {
+    e.preventDefault();
+    setSearchText(e.target.value);
+  };
+
+  const handleSearchArray = () => {
+    const filteredArray = cardArray.filter(
+      p => p.title.toLowerCase().includes(searchText.toLowerCase()) ||
+        p.price.toLowerCase().includes(searchText.toLowerCase()
+        )
+    );
+    setProducts(filteredArray);
+  };
+
+  useEffect(() => {
+    setProducts(cardArray);
+  }, []);
+
   return (<>
 
     <Header />
@@ -10,9 +33,12 @@ export const Layout = () => {
       <section className="search">
         <div className="container">
           <div className="search-box">
-            <input type="text" />
+            <input type="text"
+              value={searchText}
+              onChange={handleSearch}
+            />
 
-            <button className="btn btn-primary search-btn">
+            <button className="btn btn-primary search-btn" onClick={handleSearchArray}>
               <img className="search-btn__icon" src=" /image/search.svg" alt="search" />
               <span className="search-btn__text">Найти</span>
             </button>
@@ -20,7 +46,7 @@ export const Layout = () => {
         </div>
       </section>
 
-      <Outlet />
+      <Outlet context={{products}} />
 
     </main>
   </>);

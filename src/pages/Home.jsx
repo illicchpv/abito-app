@@ -1,7 +1,9 @@
+import {useOutletContext} from "react-router-dom";
 import {Card} from "../components/Card/Card";
-import {cardArray} from "../constants";
 
 export const Home = () => {
+  const {products} = useOutletContext();
+
   return (
     <section className="content">
       <div className="container">
@@ -14,7 +16,7 @@ export const Home = () => {
             <div className="content-main__list">
 
               {
-                cardArray.map(card =>
+                products.map(card =>
                   <Card
                     key={card.id}
                     id={card.id}

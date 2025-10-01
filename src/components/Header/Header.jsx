@@ -12,7 +12,7 @@ export const Header = () => {
           </Link>
 
           <div className="header-controls">
-            <button className="btn btn-outline">Вход и регистрация</button>
+            <Link to="/err" className="btn btn-outline">Вход и регистрация(ERR)</Link>
             <button className="btn btn-primary">Подать объявление</button>
           </div>
           

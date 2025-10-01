@@ -4,9 +4,11 @@ import {createBrowserRouter, RouterProvider, } from "react-router-dom";
 
 import './index.css';
 import './index-media.css';
+import './error.css';
 import {Home} from './pages/Home';
 import {Product} from './pages/Product';
 import {Layout} from './layout/Layout';
+import {ErrorPage} from './pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,10 @@ const router = createBrowserRouter([
         element: <Product />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
   },
 ]);
 

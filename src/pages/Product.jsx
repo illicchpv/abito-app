@@ -1,9 +1,9 @@
-import {useParams} from "react-router-dom";
-import {cardArray} from "../constants";
+import {useOutletContext, useParams} from "react-router-dom";
 
 export const Product = () => {
   const {id} = useParams();
-  const findProduct = cardArray.find(p => p.id === Number(id));
+  const {products} = useOutletContext();
+  const findProduct = products.find(p => p.id === Number(id));
 
   return (
     <section className="content">
